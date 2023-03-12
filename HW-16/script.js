@@ -57,7 +57,7 @@ function addSecondSection(e) {
     sectionTwo.innerHTML = keysValues[btnNumber]
         .map((el, i) => {
             if (el.name === e.target.innerText) {
-                return `<h2 class='secTwo__title'>${el.name}</h2> <p class='secTwo__text'>Виробник: ${el.country}</p><p class='secTwo__text'>Колір: ${el.color}</p><p class='secTwo__text'>Кількість: ${el.count}</p>`;
+                return `<h2 class='secTwo__title'>${el.name}</h2> <p class='secTwo__text'>Виробник: ${el.country}</p><p class='secTwo__text'>Колір: ${el.color}</p><p class='secTwo__text'>Кількість: ${el.count}</p><button onclick="done()">Купити</button>`;
             }
         })
         .join(" ");
@@ -73,6 +73,12 @@ function addStyleActive(num) {
     allBtn.forEach((el) => {
         btn !== el ? el.classList.remove("textGold") : el.classList.add("textGold");
     });
+}
+
+function done() {
+    alert("Товар доданий до корзини");
+    sectionOne.innerHTML = "";
+    sectionTwo.innerHTML = "";
 }
 aside.addEventListener("click", addInfo);
 sectionOne.addEventListener("click", addSecondSection);
