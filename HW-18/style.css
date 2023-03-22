@@ -1,0 +1,148 @@
+.wrapper {
+    max-width: 1260px;
+    margin: 20px auto;
+    background: #f9f9f9;
+}
+
+.hdr {
+    height: 50px;
+    background-color: black;
+}
+
+.hdr__title {
+    text-transform: uppercase;
+    line-height: 50px;
+    font-size: 45px;
+    letter-spacing: 6px;
+    margin-left: 30px;
+    color: white;
+}
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    flex: 0 1 17%;
+
+
+}
+
+.btn {
+    width: 200px;
+    letter-spacing: 1px;
+    border: navajowhite;
+    background: black;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 300ms ease-in-out;
+}
+
+.btn:hover {
+    color: goldenrod;
+}
+
+.textGold {
+    color: goldenrod;
+    position: relative;
+}
+
+.textGold::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid rgb(0, 0, 0);
+    right: -14px;
+    top: 5px;
+}
+
+.section-one {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    flex: 0 1 17%;
+}
+
+.section-two {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    flex: 0 1 30%;
+
+}
+
+.section-three {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.secTwo__title {
+    font-size: 30px;
+    margin: 0px;
+    color: #e5aa14;
+}
+
+.secTwo__text {
+    font-size: 20px;
+    margin: 0px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+span {
+    height: 15px;
+    margin: 5px 0px 5px 0px;
+}
+
+label {
+    margin: 5px 0px;
+}
+
+p {
+    margin-left: 10px;
+}
+
+.errorText {
+    color: red;
+}
+
+.fsbmt {
+    margin: 20px 0px;
+    width: 100px;
+    height: 30px;
+}
+
+.ftitle {
+    font-size: 28px;
+    text-align: center;
+    color: goldenrod;
+}
+
+.local-box {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    height: 30px;
+}
