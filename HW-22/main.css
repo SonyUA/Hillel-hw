@@ -1,0 +1,13 @@
+.wrapper {
+    max-width: 1260px;
+    margin: 0 auto;
+    margin: 30px;
+}
+
+.btnAdd {
+    margin: 5px 0px 20px 0px;
+}
+
+.alert {
+    cursor: pointer;
+}
