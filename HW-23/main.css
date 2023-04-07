@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mainBox {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 40px auto;
+    background-image: url('https://images.unian.net/photos/2021_12/1639320552-5301.jpg?0.1978007940063391');
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+
+
+.main__innerBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+
+.main__innerBox:nth-child(2) {
+    flex-direction: column;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.wind {
+    margin: 5px;
+}
+
+.main__innerBox:nth-child(3) {
+    font-size: 18px;
+    font-weight: 600;
+    align-items: baseline;
+}
+
+.image {
+    width: 80px;
+}
+
+.temp,
+.city {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+
+.time {
+    font-size: 30px;
+}
+
+i {
+    margin-right: 20px;
+}
+
+.twoDots {
+
+    animation: blink 1s infinite;
+    animation-delay: 0.3s, 0.3s, 0.6s;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
