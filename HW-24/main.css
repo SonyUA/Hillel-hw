@@ -1,0 +1,45 @@
+.display {
+    background: black;
+    width: 208px;
+    height: 38px;
+    margin: 4px auto;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+
+}
+
+button {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    padding: 0;
+    margin: 1px;
+}
+
+.calculatorBox {
+    width: 208px;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: black;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.clearDeleteBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.clearDeleteBox>button {
+    width: 100%;
+}
+
+.operation,
+.point,
+.equal {
+    background-color: rgb(238, 112, 9);
+    color: black;
+}
