@@ -1,0 +1,29 @@
+.card {
+    width: 400px;
+    margin: 0px auto;
+    position: relative;
+}
+.cardImage {
+    width: 100%;
+}
+.cardBtn {
+    position: absolute;
+    left: 13px;
+    bottom: 15px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cardBtn:hover {
+    color: goldenrod;
+}
+.cardNumber {
+    position: absolute;
+    right: 84px;
+    color: #ac0605;
+    bottom: 84px;
+    font-size: 48px;
+}
