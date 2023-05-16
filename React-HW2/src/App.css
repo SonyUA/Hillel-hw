@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    color: #0de4ff;
+}
+
+.counterBox {
+    background: grey;
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+.text {
+    font-size: 30px;
+    margin: 10px;
+}
+.btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    width: 50%;
+    margin: 0px;
+    cursor: pointer;
+    transition: 500ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.7);
+}
