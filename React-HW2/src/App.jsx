@@ -11,7 +11,7 @@ const App = () => {
     };
     return (
         <div className='counterBox'>
-            <h1 className='title'>Counter</h1>
+            <h1 className='title'>Counter-Box</h1>
             <p className='text'>{count}</p>
             <Button onClick={HandleClickMinus}>-</Button>
             <Button onClick={HandleClickPlus}>+</Button>
