@@ -4,4 +4,40 @@
     align-items: center;
     background: #0000002e;
     height: 70px;
+    flex-wrap: wrap;
+}
+.usersList {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.listItem,
+p {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+p {
+    line-height: 35px;
+}
+.textInput {
+    height: 25px;
+    border: none;
+    margin: 0;
+    text-align: center;
+}
+.btn {
+    height: 27px;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.list,
+.userItem {
+    flex: 0 1 30%;
 }

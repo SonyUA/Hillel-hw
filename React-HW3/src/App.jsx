@@ -4,83 +4,95 @@ import { Header } from "./Header/Header";
 import { useEffect } from "react";
 
 const App = () => {
-    let [allUsers, setAllUsers] = useState([]);
-    let [addAllUsers, setAddAllUsers] = useState(false);
-    let [textValue, setTextValue] = useState("");
-    let [user, setUser] = useState([]);
-    // let [addUser, setAdduser] = useState(false);
+    const [allUsers, setAllUsers] = useState([]);
+    const [textValue, setTextValue] = useState("");
+    const [user, setUser] = useState([]);
+    const [addUser, setAdduser] = useState(false);
+    const [dataFetched, setDataFetched] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         const getUsers = async () => {
-            const response = await fetch("https://jsonplaceholder.typicode.com/users");
-            const data = await response.json();
             try {
-                if (response.ok) {
-                    setAllUsers(data);
-                    console.log(allUsers);
+                const response = await fetch("https://jsonplaceholder.typicode.com/users");
+                const data = await response.json();
+                setAllUsers(data);
+                setDataFetched(true);
+                console.log(allUsers);
+                if (!response.ok) {
+                    throw new Error("Щось пішло нетак!");
                 }
-            } catch (response) {
-                console.log(response.message);
+            } catch (e) {
+                console.log("Message", e.message);
             }
         };
-        getUsers();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        if (!dataFetched) {
+            getUsers();
+        }
+    }, [allUsers, dataFetched]);
 
-    const addUsers = () => {
-        setAddAllUsers(!addAllUsers);
+    const getUser = async () => {
+        try {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/users/${textValue}`);
+            const data = await response.json();
+            setUser([data]);
+            console.log(user);
+            if (!response.ok) {
+                throw new Error("Щось пішло нетак!!");
+            }
+        } catch (e) {
+            console.log(e.message);
+        }
     };
 
     const inputValue = (e) => {
         setTextValue(e.target.value);
+        setAdduser(false);
+        setError(false);
     };
     const addOneUser = () => {
-        let num = Number(textValue);
-        if (num > 0) {
-            getUser(num);
-            //setAdduser(!addUser);
+        if (allUsers.length >= Number(textValue) && Number(textValue) >= 1) {
+            setAdduser(!addUser);
+            getUser();
+        } else {
+            setError(true);
         }
     };
-
-    const getUser = async (value) => {
-        try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/users/${value}`);
-            if (response.ok) {
-                const data = await response.json();
-                setUser([data]);
-                console.log(user);
-            }
-        } catch (response) {
-            console.log(response.message);
-        }
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
 
     return (
         <div className='usersBox'>
-            <Header getAllUsers={addUsers} inputValue={inputValue} addOneUser={addOneUser} />
-            {
-                <div className='usersList'>
-                    {addAllUsers &&
+            <Header inputValue={inputValue} addOneUser={addOneUser} />
+            <div className='usersList'>
+                <ol className='list'>
+                    <h2>Users</h2>
+                    {allUsers &&
                         allUsers.map((user) => (
-                            <p key={user.id}>
-                                {user.name} : ID - {user.id}
-                            </p>
+                            <li className='listItem' key={user.id + user.name}>
+                                {user.name}
+                            </li>
                         ))}
-                    {user.map((user) => (
-                        <p key={user.id}>
-                            Name:{user.name}
-                            <br />
-                            tel:{user.phone}
-                            <br />
-                            email:{user.email}
-                            <br />
-                            website:{user.website}
-                        </p>
-                    ))}
+                </ol>
+                <div className='userItem'>
+                    {error && <span>ID вказано невірно</span>}
+                    {addUser &&
+                        user.map((user) => (
+                            <div key={user.id + user.length}>
+                                <h2 key={user.id + user.name}>{user.name}</h2>
+                                <p key={user.id}>
+                                    Tel: {user.phone}
+                                    <br />
+                                    Email: {user.email}
+                                    <br />
+                                    Website: {user.website}
+                                    <br />
+                                    City: {user.address.city}
+                                    <br />
+                                    Username: {user.username}
+                                </p>
+                            </div>
+                        ))}
                 </div>
-            }
+            </div>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { AllUsersBtn } from "./AllUsersBtn";
+
 import { TextInput } from "./TextInput";
-import { UserBtn } from "./UserBtn";
+import { Button } from "./Button";
 import "../app.css";
 
 export const Header = (props) => {
@@ -10,9 +10,8 @@ export const Header = (props) => {
             <h1> jsonplaceholder </h1>
             <div className='searcInputBox'>
                 <TextInput inputValue={props.inputValue} />
-                <UserBtn addOneUser={props.addOneUser} />
+                <Button onClick={props.addOneUser} text='Search user' />
             </div>
-            <AllUsersBtn onClick={props.getAllUsers} />
         </div>
     );
 };
